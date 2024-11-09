@@ -1,3 +1,7 @@
+/*
+Dòng comment này được viết trên Github
+nhằm test chức năng chỉnh sửa trên này
+*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
