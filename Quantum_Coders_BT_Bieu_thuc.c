@@ -1,7 +1,7 @@
 /*
 Mẹ mày béo
 Dòng comment này được viết trên Github
-nhằm test chức năng chỉnh sửa trên này
+nhằm test chức năng chỉnh sửa trên
 */
 #include <stdio.h>
 #include <string.h>
