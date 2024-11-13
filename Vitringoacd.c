@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<string.h>
-#include<ctype.h>
 int Vitri_ngoac(char* a, int m ) {
     int dem = 1; // Dung dem so luong ngoac mo ah
     for (int i = m + 1; i < strlen(a); i++) {
