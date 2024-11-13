@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-#include <stdlib.h>
-#include <string.h>
+#include <string.h
 #define MAX_LEN 100
 // Hàm loai bo cac ky tu trong trong bieu thuc
 void khongKhoangTrang(char* a) {
