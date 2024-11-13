@@ -17,7 +17,7 @@ int main() {
     for (int i = 0; i < strlen(a); i++) {
         if (isdigit(a[i])) { // khi gap so hang
             int ketthuc = chusoovitricuoicung(a, i);
-            printf("so hang bat dau tai %d và ket thuc tai %d\n", i, ketthuc);
+            printf("so hang bat dau tai %d va ket thuc tai %d\n", i, ketthuc);
             i = ketthuc; // bo qua cac chu so da duyet 
         }
     }

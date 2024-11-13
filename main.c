@@ -1,85 +1,81 @@
-/*
-Mẹ mày béo
-Dòng comment này được viết trên Github
-nhằm test chức năng chỉnh sửa
-*/
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-//dem ki true
-int demkitu(char *a, int n)
-{
-    int dem1=0;
-    for (int i=0; a[i]!='\0'; i++){
-        dem1++;
+
+void remove_spaces(char *expression);
+int parse_number(const char *expression, int *index);
+int evaluate_expression(const char *expression, int *index);
+
+// Hàm xóa khoảng trắng trong chuỗi
+void remove_spaces(char *expression) {
+    char *p1 = expression, *p2 = expression;
+    while (*p2) {
+        if (*p2 != ' ') {
+            *p1++ = *p2;
+        }
+        p2++;
     }
-    return dem1;
+    *p1 = '\0';
 }
 
-//dem so lan xuat hien ki tu a
-int demlan(char *a, int n)
-{
-    int dem2=0;
-    for (int i=0; a[i]!='\0';i++)
-    {
-        if(a[i]=='a')
-        {
-            dem2++;
+// Hàm chuyển chuỗi thành số nguyên
+int parse_number(const char *expression, int *index) {
+    int result = 0;
+    while (expression[*index] >= '0' && expression[*index] <= '9') {
+        result = result * 10 + (expression[*index] - '0');
+        (*index)++;
+    }
+    return result;
+}
+
+// Hàm tính toán với thứ tự phép toán và dấu ngoặc
+int evaluate_expression(const char *expression, int *index) {
+    int result = 0;
+    int current_value = 0;
+    char operator = '+'; // Khởi tạo phép toán là cộng
+
+    while (expression[*index] != '\0' && expression[*index] != ')') {
+        if (expression[*index] == '(') {
+            (*index)++;
+            current_value = evaluate_expression(expression, index);
+        } else if (expression[*index] >= '0' && expression[*index] <= '9') {
+            current_value = parse_number(expression, index);
+        }
+
+        if (operator == '+') {
+            result += current_value;
+        } else if (operator == '-') {
+            result -= current_value;
+        } else if (operator == '*') {
+            result *= current_value;
+        } else if (operator == '/') {
+            result /= current_value;
+        }
+
+        // Đọc toán tử tiếp theo
+        operator = expression[*index];
+        if (operator == '*' || operator == '/' || operator == '+' || operator == '-') {
+            (*index)++;
         }
     }
-    return dem2;
-}
 
-//dem khoang trang
-int demkhoang(char *a, int n)
-{
-    int dem3=0;
-    for(int i=0; a[i]!='\0';i++)
-    {
-        if(a[i]==' ')
-        {
-            dem3++;
-        }
+    if (expression[*index] == ')') {
+        (*index)++; // Bỏ qua dấu ")"
     }
-    return dem3;
+
+    return result;
 }
 
-//xoa khoang trang
-void xoa(char *a, int n)
-{
-    int i,j=0;
-    for(i=0;a[i]='\0';i++)
-    {
-        if(a[i]!=' ')
-        {
-            a[j++]=a[i];
-        }
-    }
-    a[j]='\0';
-}
+// Hàm main
+int main() {
+    char expression[100];
+    printf("Nhập biểu thức: ");
+    fgets(expression, sizeof(expression), stdin);
 
-//xuat ra ket qua
-void xuat(char *a, int n)
-{
-    printf("\nSo ki tu la: %d",demkitu(a,n));
-    printf("\nSo lan xuat hien: %d",demlan(a,n));
-    printf("\nSo khoang trang: %d", demkhoang(a,n));
-}
+    remove_spaces(expression);
 
-int main()
-{
-    char *a;
-    int n;
-    printf("\nNhap so phan tu ki tu:");
-    scanf("%d",&n);
-    int temp=getchar();
-    a=(char*) malloc (n*sizeof(char));
-    if(a==NULL) exit(1);
-    printf("\nNhap chuoi a:");
-    fgets(a,n,stdin)
-    [strlen(a)-1]='\0';
-    xuat(a,n);
-    xoa(a,n);
-    printf("%s",a); free(a);
+    int index = 0;
+    int result = evaluate_expression(expression, &index);
+    printf("Kết quả: %d\n", result);
+
     return 0;
 }
