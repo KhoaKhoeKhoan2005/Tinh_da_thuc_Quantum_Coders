@@ -1,26 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #define MAX 100
-//Khai bao mang
-int Nhap(int a[MAX], int *m) 
-{
-    printf("Nhap so dong va so cot cho ma tran a:\n");
-    scanf("%d%d", m);
-    for (int i = 0; i < *m; i++) 
-	{
-            printf("Nhap phan tu cho vi tri a[%d]: ", i);
-            scanf("%d", &a[i]);
-    }
-}
-int Xuat(int a[MAX], int m) 
-{
-    printf("Ma tran a vua nhap la:\n");
-    for (int i = 0; i < m; i++) 
-	{
-        printf("%d\t", a[i]);
-        printf("\n");
-    }
-}
 // Ham kiem tra và in ra cac so hang hop le va cac ky tu khong hop le trong bieu thuc
 int Kiemtrasohang(char *a)
 {
