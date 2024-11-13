@@ -11,8 +11,9 @@ int chusoovitricuoicung(char *a, int n) {
 }
 
 int main() {
-    char a[] = "(((20-17)*3/3)+9)/3-2)";
+    char a[100];
     printf("Bieu thuc : %s\n", a);
+    gets(a);
     printf("Vi tri cuoi cung cua cac so hang :\n");
     for (int i = 0; i < strlen(a); i++) {
         if (isdigit(a[i])) { // khi gap so hang
