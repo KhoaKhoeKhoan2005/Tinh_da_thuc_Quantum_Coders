@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #define MAX 100
-// Ham kiem tra v‡ in ra cac so hang hop le va cac ky tu khong hop le trong bieu thuc
+// Ham kiem tra v√† in ra cac so hang hop le va cac ky tu khong hop le trong bieu thuc
 int Kiemtrasohang(char *a)
 {
     int i = 0;
