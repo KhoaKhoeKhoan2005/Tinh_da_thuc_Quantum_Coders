@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 #define MAX_LEN 100
-// H‡m loai bo cac ky tu trong trong bieu thuc
+// H√†m loai bo cac ky tu trong trong bieu thuc
 void khongKhoangTrang(char* a) {
     int i = 0, j = 0;
     while (a[i]) {
-        if (!isspace(a[i])) {  // Neu khong phai khoang trang thÏ sao chep
+        if (!isspace(a[i])) {  // Neu khong phai khoang trang th√¨ sao chep
             a[j++] = a[i];
         }
         i++;
@@ -16,7 +16,7 @@ void khongKhoangTrang(char* a) {
 }
 // Ham kiem tra tinh hop le cua bieu thuc (kiem tra ngoac tron)
 int kiemTraHople(char* a) {
-    int balance = 0;  // Dung de dem so luong ngooc mo v‡ dong
+    int balance = 0;  // Dung de dem so luong ngooc mo v√† dong
     for (int i = 0; a[i] != '\0'; i++) {
         if (a[i] == '(') {
             balance++;
@@ -49,7 +49,7 @@ int tinhGiaTri(char* a, int* n) {
         }
         if (a[*n] == '(') {  // Xu ly ngoac mo
             (*n)++;
-            S += dau * tinhGiaTri(a, n);  // Goi lai ham de quy voi c·c tham so dung
+            S += dau * tinhGiaTri(a, n);  // Goi lai ham de quy voi c√°c tham so dung
         }
         if (a[*n] == ')') {  // Xu ly ngoac dong
             (*n)++;
