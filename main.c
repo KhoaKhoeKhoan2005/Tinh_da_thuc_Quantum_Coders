@@ -6,8 +6,8 @@ int main() {
     fgets(a, sizeof(a), stdin);
 
     xoa_cach(a);
-    kt_dau(a);
     kt_so_hang(a);
+    kt_dau(a);
     tinh(a);
     
     printf("Kết quả: %d\n", result);
