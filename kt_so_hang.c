@@ -2,18 +2,18 @@
 #include <string.h>
 #define MAX 100
 
-int songuyen (const char* a) 
+int songuyen (const char* b) 
 {
     int i = 0;
 // Kiem tra dau am o dau
-    if (a[0] == '-') 
+    if (b[0] == '-') 
 	{
         i = 1;
     }
 // Duyet qua tung ky tu de kiem tra co phai la so nguyen khong
-    for (; a[i] != '\0'; i++) 
+    for (; b[i] != '\0'; i++) 
 	{
-        if (a[i] < '0' || a[i] > '9') 
+        if (b[i] < '0' || b[i] > '9') 
 		{
             return 0; 
         }
@@ -36,13 +36,13 @@ int kt_so_hang (const char* bieu_thuc, int batdau)
 // Trich xuat so hang hien tai
     if (ketthuc > batdau) 
 	{
-        char a[MAX];
-        strncpy(a, &bieu_thuc[batdau], ketthuc - batdau);
+        char b[MAX];
+        strncpy(b, &bieu_thuc[batdau], ketthuc - batdau);
         a[ketthuc - batdau] = '\0';
 // Kiem tra neu la so nguyen va in ra
-        if (songuyen(a)) 
+        if (songuyen(b)) 
 		{
-            printf("%s ", a);
+			printf("%s ", b);
         }
     }
 // De quy den phan tiep theo cua bieu thuc
