@@ -38,3 +38,7 @@ int main() {
     printf("Ket qua: %s\n", a);
     return 0;
 }
+// Tao cung nghi ra duoc phuong an nay hom qua, nhung ma nghi ra ham tinh voi ham final rat la kho
+// Cu the la t du dinh tao ra 3 mang b,c,d trong do mang b va c nhu da ban hom thu 4, con mang d la de chua level cua cac so hang trong mang b
+//so hang cang nam trong nhieu dau ngoac thi level cang cao
+// vd bieu thuc ((3+8)+12-14) thi mang b la 3 8 12 14 va mang d la 2 2 1 1
