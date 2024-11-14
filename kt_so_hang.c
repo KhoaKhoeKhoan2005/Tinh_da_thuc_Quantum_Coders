@@ -1,51 +1,64 @@
 #include <stdio.h>
 #include <string.h>
 #define MAX 100
-// Ham kiem tra in ra cac so hang hop le va cac ky tu khong hop le trong bieu thuc
-int Kiemtrasohang(char *a)
+
+int songuyen (const char* a) 
 {
     int i = 0;
-    while (a[i] != '\0')
+// Kiem tra dau am o dau
+    if (a[0] == '-') 
 	{
-        // Kiem tra neu ky ty la mot so hoac mot dau '-' truoc so
-        if ((a[i] >= '0' && a[i] <= '9') || (a[i] == '-' && a[i + 1] >= '0' && a[i + 1] <= '9'))
-		{
-            // Bat dau mot so hang hop le
-            int batdau = i; // Vi tri bat dau cua so hang
-            if (a[i] == '-') 
-			{
-                i++;
-            }
-            // Duyet qua cac ky tu so lien tiep de tim het so hang
-            while (a[i] >= '0' && a[i] <= '9') 
-			{
-                i++;
-            }
-            // Trich xuat va in ra so hang hop le
-            printf("So hang hop le tai vi tri %d: ", batdau);
-            for (int j = batdau; j < i; j++) 
-			{
-                printf("%c", a[j]);
-            }
-            printf("\n");
-        }
-        // Neu ky tu khong hop le
-        else
-		{
-            printf("So hang khong hop le tai vi tri %d: %c\n", i, a[i]);
-        }
-        i++;
+        i = 1;
     }
+// Duyet qua tung ky tu de kiem tra co phai la so nguyen khong
+    for (; a[i] != '\0'; i++) 
+	{
+        if (a[i] < '0' || a[i] > '9') 
+		{
+            return 0; 
+        }
+    }
+    return 1;
+}
+// Ham de quy de tim va in ra cac so nguyen trong bieu thuc
+int kt_so_hang (const char* bieu_thuc, int batdau) 
+{
+    if (bieu_thuc[batdau] == '\0')
+	return; // Ðieu kien dung: het chuoi
+    int ketthuc = batdau;
+// Tim diem cuoi cua so hang hien tai cho den khi gap toan tu hoac het chuoi
+    while (bieu_thuc[ketthuc] != '+' && bieu_thuc[ketthuc] != '-' &&
+           bieu_thuc[ketthuc] != '*' && bieu_thuc[ketthuc] != '/' &&
+           bieu_thuc[ketthuc] != '(' && bieu_thuc[ketthuc] != ')' && bieu_thuc[ketthuc] != '\0') 
+		   {
+       ketthuc++;
+    }
+// Trich xuat so hang hien tai
+    if (ketthuc > batdau) 
+	{
+        char a[MAX];
+        strncpy(a, &bieu_thuc[batdau], ketthuc - batdau);
+        a[ketthuc - batdau] = '\0';
+// Kiem tra neu la so nguyen va in ra
+        if (songuyen(a)) 
+		{
+            printf("%s ", a);
+        }
+    }
+// De quy den phan tiep theo cua bieu thuc
+    kt_so_hang (bieu_thuc, ketthuc + 1);
 }
 
 int main() 
 {
-    char a[100];
-    // Nhap bieu thuc
-    printf("Nhap mot bieu thuc co dau ngoac don bat ky: ");
-    fgets(a, sizeof(a), stdin);
-    // Kiem tra so hang trong bieu thuc
-    Kiemtrasohang(a);
+    char bieu_thuc[MAX];
+    printf("Nhap bieu thuc bat ky: ");
+    fgets(bieu_thuc, sizeof(bieu_thuc), stdin);
+// Loai bo ky tu xuong dong o cuoi chuoi neu co
+    bieu_thuc[strcspn(bieu_thuc, "\n")] = '\0';
+    printf("Cac so hang co trong bieu thuc la: ");
+    kt_so_hang(bieu_thuc, 0);
+    printf("\n");
     return 0;
 }
 
