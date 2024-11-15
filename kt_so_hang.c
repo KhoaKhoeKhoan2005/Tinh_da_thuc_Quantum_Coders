@@ -24,7 +24,7 @@ int songuyen (const char* b)
 int kt_so_hang (const char* bieu_thuc, int batdau) 
 {
     if (bieu_thuc[batdau] == '\0')
-	return; // Ğieu kien dung: het chuoi
+	return 0; // ï¿½ieu kien dung: het chuoi
     int ketthuc = batdau;
 // Tim diem cuoi cua so hang hien tai cho den khi gap toan tu hoac het chuoi
     while (bieu_thuc[ketthuc] != '+' && bieu_thuc[ketthuc] != '-' &&
@@ -38,7 +38,7 @@ int kt_so_hang (const char* bieu_thuc, int batdau)
 	{
         char b[MAX];
         strncpy(b, &bieu_thuc[batdau], ketthuc - batdau);
-        a[ketthuc - batdau] = '\0';
+        b[ketthuc - batdau] = '\0';
 // Kiem tra neu la so nguyen va in ra
         if (songuyen(b)) 
 		{

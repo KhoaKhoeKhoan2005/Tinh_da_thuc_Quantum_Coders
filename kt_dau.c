@@ -15,7 +15,7 @@ int main()
 {
     char a[100];
     printf("Nhap bieu thuc ");
-	gets(a);
+	fgets(a); //Using gets() is always unsafe - use fgets() instead [-Wattribute-warning]
     printf("\nbieu thuc sau khi nhap: ");
     puts(a);
     printf("\nthu tu cac phep toan: ");
