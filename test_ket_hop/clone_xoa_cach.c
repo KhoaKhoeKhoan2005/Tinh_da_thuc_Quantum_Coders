@@ -57,7 +57,7 @@ int tinhGiaTri(char* a, int* n) {
     }
     return S;
 }
-int main() {
+int main_of_xoa_cach() {
     char a[100];
     printf("Nhap bieu thuc : ");
     fgets(a, 100 , stdin);  

@@ -11,7 +11,7 @@ int kt_dau(char *a)
     }
 }
 
-int main() 
+int ktdaumain() 
 {
     char a[100];
     printf("Nhap bieu thuc ");

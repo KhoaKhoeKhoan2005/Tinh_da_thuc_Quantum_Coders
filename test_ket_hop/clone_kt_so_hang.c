@@ -50,7 +50,7 @@ int kt_so_hang (const char* bieu_thuc, int batdau)
     kt_so_hang (bieu_thuc, ketthuc + 1);
 }
 
-int main() 
+int main_kt_so_hang() 
 {
     char bieu_thuc[MAX];
     printf("Nhap bieu thuc bat ky: ");

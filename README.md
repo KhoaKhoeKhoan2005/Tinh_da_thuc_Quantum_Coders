@@ -6,5 +6,5 @@ a) Kiểm tra và khử trống trong biểu thức <br/>
 b) Xác định vị trí phép toán <br/>
 c) Kiểm tra số hạng <br/>
 d) Vị trí ngoặt đóng <br/>
-e) Vị trí cuối của số hạng <br/>
+e) Vị trí cuối của số hạng (bỏ) <br/>
 Vd biểu thức (((20-17)*3/3)+9/3-2)
