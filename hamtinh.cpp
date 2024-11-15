@@ -65,4 +65,4 @@ int main() {
     cout << "Gia tri cua bieu thuc la: " << result << endl;
 
     return 0;
-}2
+}
